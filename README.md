@@ -10,17 +10,17 @@
 
 ### 调试环境（开发环境）
 
-以[MindSpore1.5分布式训练教程](https://www.mindspore.cn/tutorials/zh-CN/r1.5/intermediate/distributed_training/distributed_training_ascend.html) 为例，使用本SDK可改造为
+以[MindSpore1.5分布式训练教程](https://www.mindspore.cn/tutorials/zh-CN/r1.5/intermediate/distributed_training/distributed_training_ascend.html)
+为例，使用本SDK可改造为
 
 ```python
 import os
 
 os.environ['DATA_PATH'] = '/cache/cifar-10-batches-bin'
-from davincirunsdk import start_distributed_train, wait_distributed_train
+from davincirunsdk import start_and_wait_distributed_train
 
 cmd = ['python', 'resnet50_distributed_training.py']
-manager = start_distributed_train(cmd, output_notebook=True)
-wait_distributed_train(manager)
+start_and_wait_distributed_train(cmd, output_notebook=True)
 ```
 
 ### 训练作业

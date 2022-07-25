@@ -4,7 +4,8 @@
 #  license that can be found in the LICENSE file or at
 #  https://opensource.org/licenses/MIT.
 #
-
+import errno
+import os
 
 from davincirunsdk.common import ModelArtsLog
 
@@ -31,3 +32,21 @@ def is_in_notebook():
     except Exception:
         return False
     return True
+
+def fsync_dir(dir_path):
+    """
+    Execute fsync on a directory ensuring it is synced to disk
+
+    :param str dir_path: The directory to sync
+    :raise OSError: If fail opening the directory
+    """
+    dir_fd = os.open(dir_path, os.O_DIRECTORY)
+    try:
+        os.fsync(dir_fd)
+    except OSError as e:
+        # On some filesystem doing a fsync on a directory
+        # raises an EINVAL error. Ignoring it is usually safe.
+        if e.errno != errno.EINVAL:
+            raise
+    finally:
+        os.close(dir_fd)

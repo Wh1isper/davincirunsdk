@@ -4,6 +4,7 @@ import shutil
 
 from davincirunsdk.common import RankTableEnv
 
+cache_dir = '/cache'
 dir_prefix = os.path.dirname(__file__)
 generated_hccl_path = '/home/ma-user/rank_table/jobstart_hccl.json'
 k8s_hccl_path = RankTableEnv.get_rank_table_file_path()
@@ -11,6 +12,10 @@ mock_k8s_hccl_file = os.path.join(dir_prefix, 'k8s_jobstart_hccl.json')
 
 
 def setup():
+    try:
+        os.makedirs(os.path.dirname(generated_hccl_path), exist_ok=True)
+    except OSError:
+        raise OSError(f'Cant mkdir for cache: {cache_dir}')
     try:
         os.makedirs(os.path.dirname(generated_hccl_path), exist_ok=True)
     except OSError:

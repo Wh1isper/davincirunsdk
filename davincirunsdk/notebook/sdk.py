@@ -7,12 +7,15 @@
 
 
 import os
+import shutil
+import uuid
+from contextlib import contextmanager
 from typing import Dict
 
 from davincirunsdk.common import RankTableEnv, ModelArts
 from davincirunsdk.notebook.manager import AscendVersionManager, Manager, FMKManager
 from davincirunsdk.notebook.tailer import TailManager
-from davincirunsdk.notebook.utils import init_log
+from davincirunsdk.notebook.utils import init_log, fsync_dir
 from davincirunsdk.rank_table import RankTable, RankTableV1, RankTableV0
 
 
@@ -72,6 +75,40 @@ def init_rank_table() -> Dict or False:
     return os.environ.copy()
 
 
+@contextmanager
+def set_random_ms_cache_dir():
+    log = init_log()
+    log.info('Changing MindSpore Cache dir...')
+    cache_dir = f'/cache/{uuid.uuid4()}'
+    old_cache_dir = os.environ.get('MS_COMPILER_CACHE_PATH')
+    try:
+        try:
+            os.environ['MS_COMPILER_CACHE_PATH'] = cache_dir
+            os.makedirs(cache_dir, exist_ok=True)
+            fsync_dir(cache_dir)
+        except Exception as e:
+            log.warning('Fail to setup cache dir, will using default')
+            log.exception(e)
+            yield
+            return
+
+        yield
+    finally:
+        if old_cache_dir:
+            os.environ['MS_COMPILER_CACHE_PATH'] = old_cache_dir
+        else:
+            del os.environ['MS_COMPILER_CACHE_PATH']
+        try:
+            shutil.rmtree(cache_dir)
+        except Exception as e:
+            log.warning('Fail to cleanup cache dir')
+            log.exception(e)
+
+
+def wait_distributed_train(fmk_manager, destroy_when_finished=True, raise_exception=True):
+    return fmk_manager.wait(destroy_when_finished, raise_exception)
+
+
 def start_distributed_train(command, work_dir='./', log_dir='./log', *, output_notebook=False):
     init_log()
     rank_table = get_rank_table()
@@ -83,8 +120,23 @@ def start_distributed_train(command, work_dir='./', log_dir='./log', *, output_n
     return fmk_manager
 
 
-def wait_distributed_train(fmk_manager, destroy_when_finished=True, raise_exception=True):
-    return fmk_manager.wait(destroy_when_finished, raise_exception)
+def start_and_wait_distributed_train(command, work_dir='./', log_dir='./log', *, output_notebook=False,
+                                     random_cache_dir=True, destroy_when_finished=True, raise_exception=True):
+    def _run_wait():
+        fmk_manager.run(rank_table.get_device_num(), command, work_dir, log_dir, output_notebook=output_notebook)
+        return fmk_manager.wait(destroy_when_finished, raise_exception)
+
+    init_log()
+    rank_table = get_rank_table()
+    instance = rank_table.get_current_instance()
+    server = rank_table.get_server(instance.server_id)
+    current_instance = RankTable.convert_server_to_instance(server)
+    fmk_manager = FMKManager(current_instance)
+    if random_cache_dir:
+        with set_random_ms_cache_dir():
+            return _run_wait()
+    else:
+        return _run_wait()
 
 
 if __name__ == '__main__':

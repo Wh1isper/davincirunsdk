@@ -82,7 +82,7 @@ class FMKManager:
 
         return handle_func
 
-    def run(self, rank_size, command, work_dir, log_dir, *, output_notebook=False):
+    def run(self, rank_size, command, work_dir, log_dir, *, output_notebook=False, random_cache_dir=True):
         c75_tr5_flag = AscendVersionManager.is_atlas_c75_tr5()
         for index, device in enumerate(self.instance.devices):
             fmk_instance = FMK(c75_tr5_flag, index, device)
