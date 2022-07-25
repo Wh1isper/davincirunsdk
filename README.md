@@ -19,8 +19,10 @@ wait_distributed_train(manager)
 
 ### 训练作业
 
+以下命令将等价于`python davincirun.py train.py`
+
 ```bash
-davincirun train.py
+$davincirun train.py
 ```
 
 或在python文件中使用：
