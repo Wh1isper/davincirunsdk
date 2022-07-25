@@ -4,8 +4,7 @@
 
 ### 调试环境（开发环境）
 
-以[MindSpore1.5分布式训练教程](https://www.mindspore.cn/tutorials/zh-CN/r1.5/intermediate/distributed_training/distributed_training_ascend.html)
-为例，使用本SDK可改造为
+以[MindSpore1.5分布式训练教程](https://www.mindspore.cn/tutorials/zh-CN/r1.5/intermediate/distributed_training/distributed_training_ascend.html) 为例，使用本SDK可改造为
 
 ```python
 import os
@@ -64,7 +63,7 @@ $pytest .
 
 `notebook`文件夹下是针对notebook运行环境修改的davincirun文件，以及sdk入口
 
-`davincirunsdk`目录下，除了`notebook`外的文件，是原有davincurun代码，进行了python包改造
+`davincirunsdk`目录下，除了`notebook`外的文件，是原有davincurun代码，进行了python包改造，并按需启用了moxing对obs文件的支持
 
 ## 案例
 
