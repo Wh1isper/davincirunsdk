@@ -2,6 +2,12 @@
 
 为类Jupyter交互式环境提供Notebook友好的Ascend分布式训练SDK
 
+## 安装及使用
+
+### 安装
+
+`$pip install davincirunsdk`
+
 ### 调试环境（开发环境）
 
 以[MindSpore1.5分布式训练教程](https://www.mindspore.cn/tutorials/zh-CN/r1.5/intermediate/distributed_training/distributed_training_ascend.html) 为例，使用本SDK可改造为
