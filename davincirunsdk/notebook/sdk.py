@@ -73,6 +73,7 @@ def init_rank_table() -> Dict or False:
 
 
 def start_distributed_train(command, work_dir='./', log_dir='./log', *, output_notebook=False):
+    init_log()
     rank_table = get_rank_table()
     instance = rank_table.get_current_instance()
     server = rank_table.get_server(instance.server_id)

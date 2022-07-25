@@ -244,7 +244,7 @@ class ModelArtsLog:
     @staticmethod
     def setup_modelarts_logger():
         name = logo
-        formatter = logging.Formatter(fmt='[ModelArts Service Log]%(asctime)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(fmt='[DavincirunSDK]%(asctime)s - %(levelname)s - %(message)s')
 
         handler = logging.StreamHandler()
         handler.setFormatter(formatter)
