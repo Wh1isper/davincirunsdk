@@ -34,11 +34,10 @@ $davincirun train.py
 或在python文件中使用：
 
 ```python
-from davincirunsdk import init_rank_table, start_distributed_train, wait_distributed_train
+from davincirunsdk import init_rank_table, start_and_wait_distributed_train
 
 init_rank_table()
-manager = start_distributed_train(['python', 'train.py'])
-wait_distributed_train(manager)
+start_and_wait_distributed_train(['python', 'train.py'])
 ```
 
 ### AI靶场全量运行
