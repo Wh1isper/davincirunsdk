@@ -22,7 +22,6 @@ setup(
     version=__version__,
     description='davincirunsdk',
     long_description=long_description,
-    long_description_content_type='text/markdown',
     url='https://github.com/jizhongsheng/davincirun',
     download_url='https://github.com/jizhongsheng/davincirun/tarball/' + __version__,
     license='BSD',
