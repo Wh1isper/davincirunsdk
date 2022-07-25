@@ -3,12 +3,12 @@
   "group_count": "1",
   "group_list": [
     {
-      "group_name": "job-czk-nmt-paper",
+      "group_name": "fake-job",
       "device_count": "16",
       "instance_count": "2",
       "instance_list": [
         {
-          "pod_name": "job593a92f4-job-czk-nmt-paper-1",
+          "pod_name": "fake-job-pod-1",
           "server_id": "10.19.1.79",
           "devices": [
             {
@@ -46,7 +46,7 @@
           ]
         },
         {
-          "pod_name": "job593a92f4-job-czk-nmt-paper-0",
+          "pod_name": "fake-job-pod-0",
           "server_id": "10.19.1.142",
           "devices": [
             {

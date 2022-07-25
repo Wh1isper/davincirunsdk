@@ -1,3 +1,11 @@
+#  Copyright (c) 2022 Wh1isper
+#
+#  Use of this source code is governed by an MIT-style
+#  license that can be found in the LICENSE file or at
+#  https://opensource.org/licenses/MIT.
+#
+
+
 import os
 import subprocess
 import pathlib
@@ -9,8 +17,8 @@ from davincirunsdk.common import ModelArts
 from davincirunsdk.common import BatchEnv
 from davincirunsdk.common import HwHiAiUser
 from davincirunsdk.common import OpEnv
-from davincirunsdk.customize.tailer import tail, TailManager, LogRecorder
-from davincirunsdk.customize.utils import is_in_notebook
+from davincirunsdk.notebook.tailer import tail, TailManager, LogRecorder
+from davincirunsdk.notebook.utils import is_in_notebook
 
 log = ModelArtsLog.get_modelarts_logger()
 

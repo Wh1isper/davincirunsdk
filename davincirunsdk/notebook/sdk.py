@@ -1,10 +1,18 @@
+#  Copyright (c) 2022 Wh1isper
+#
+#  Use of this source code is governed by an MIT-style
+#  license that can be found in the LICENSE file or at
+#  https://opensource.org/licenses/MIT.
+#
+
+
 import os
 from typing import Dict
 
 from davincirunsdk.common import RankTableEnv, ModelArts
-from davincirunsdk.customize.manager import AscendVersionManager, Manager, FMKManager
-from davincirunsdk.customize.tailer import TailManager
-from davincirunsdk.customize.utils import init_log
+from davincirunsdk.notebook.manager import AscendVersionManager, Manager, FMKManager
+from davincirunsdk.notebook.tailer import TailManager
+from davincirunsdk.notebook.utils import init_log
 from davincirunsdk.rank_table import RankTable, RankTableV1, RankTableV0
 
 

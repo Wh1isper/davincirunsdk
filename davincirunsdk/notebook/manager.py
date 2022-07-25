@@ -1,3 +1,11 @@
+#  Copyright (c) 2022 Wh1isper
+#
+#  Use of this source code is governed by an MIT-style
+#  license that can be found in the LICENSE file or at
+#  https://opensource.org/licenses/MIT.
+#
+
+
 import time
 import subprocess
 import os
@@ -12,9 +20,9 @@ from davincirunsdk.common import ModelArts
 from davincirunsdk.common import HwHiAiUser
 from davincirunsdk.common import OpEnv
 from davincirunsdk.common import BatchEnv
-from davincirunsdk.customize.exception import DistributedRuntimeError
-from davincirunsdk.customize.fmk import FMK
-from davincirunsdk.customize.tailer import LogRecorder
+from davincirunsdk.notebook.exception import DistributedRuntimeError
+from davincirunsdk.notebook.fmk import FMK
+from davincirunsdk.notebook.tailer import LogRecorder
 
 try:
     import moxing as mox
@@ -102,7 +110,7 @@ class FMKManager:
                         # only works when start by output_notebook=True
                         err_log = LogRecorder.get_log_from_pid(fmk_process.pid)
                         if raise_exception:
-                            raise DistributedRuntimeError('\n'+err_log)
+                            raise DistributedRuntimeError('\n' + err_log)
                         return fmk_process.returncode
 
                     zero_ret_cnt += 1

@@ -5,7 +5,7 @@ import shutil
 
 from davincirunsdk import init_rank_table, start_distributed_train, wait_distributed_train
 from davincirunsdk.common import RankTableEnv
-from davincirunsdk.customize.exception import DistributedRuntimeError
+from davincirunsdk.notebook.exception import DistributedRuntimeError
 
 dir_prefix = os.path.dirname(__file__)
 generated_hccl_path = '/home/ma-user/rank_table/jobstart_hccl.json'
