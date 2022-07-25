@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 here = path.abspath(path.dirname(__file__))
 
@@ -22,9 +22,8 @@ setup(
     version=__version__,
     description='davincirunsdk',
     long_description=long_description,
-    url='https://github.com/jizhongsheng/davincirun',
-    download_url='https://github.com/jizhongsheng/davincirun/tarball/' + __version__,
-    license='BSD',
+    url='https://github.com/Wh1isper/davincirunsdk',
+    license='MIT',
     classifiers=[
       'Development Status :: 3 - Alpha',
       'Intended Audience :: Developers',
@@ -39,8 +38,8 @@ setup(
     keywords='',
     packages=find_packages(exclude=['docs', 'tests*']),
     include_package_data=True,
-    author='jizhongsheng',
+    author='Wh1isper',
     install_requires=install_requires,
     dependency_links=dependency_links,
-    author_email='jizhongsheng@qianxin.com'
+    author_email='9573586@qq.com'
 )
