@@ -1,0 +1,5 @@
+
+Traceback (most recent call last):
+  File "/home/wh1isper/dev3/davincirun/tests/mock_failure.py", line 1, in <module>
+    raise RuntimeError('failed')
+RuntimeError: failed

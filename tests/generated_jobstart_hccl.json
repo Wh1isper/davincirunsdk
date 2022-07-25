@@ -1,0 +1,97 @@
+{
+  "status": "completed",
+  "version": "1.0",
+  "server_count": "2",
+  "server_list": [
+    {
+      "server_id": "10.19.1.142",
+      "device": [
+        {
+          "device_id": "0",
+          "device_ip": "192.1.65.251",
+          "rank_id": "0"
+        },
+        {
+          "device_id": "1",
+          "device_ip": "192.2.119.60",
+          "rank_id": "1"
+        },
+        {
+          "device_id": "2",
+          "device_ip": "192.3.23.207",
+          "rank_id": "2"
+        },
+        {
+          "device_id": "3",
+          "device_ip": "192.4.186.90",
+          "rank_id": "3"
+        },
+        {
+          "device_id": "4",
+          "device_ip": "192.1.72.194",
+          "rank_id": "4"
+        },
+        {
+          "device_id": "5",
+          "device_ip": "192.2.38.84",
+          "rank_id": "5"
+        },
+        {
+          "device_id": "6",
+          "device_ip": "192.3.199.174",
+          "rank_id": "6"
+        },
+        {
+          "device_id": "7",
+          "device_ip": "192.4.178.32",
+          "rank_id": "7"
+        }
+      ]
+    },
+    {
+      "server_id": "10.19.1.79",
+      "device": [
+        {
+          "device_id": "0",
+          "device_ip": "192.1.194.107",
+          "rank_id": "8"
+        },
+        {
+          "device_id": "1",
+          "device_ip": "192.2.151.252",
+          "rank_id": "9"
+        },
+        {
+          "device_id": "2",
+          "device_ip": "192.3.151.103",
+          "rank_id": "10"
+        },
+        {
+          "device_id": "3",
+          "device_ip": "192.4.42.97",
+          "rank_id": "11"
+        },
+        {
+          "device_id": "4",
+          "device_ip": "192.1.231.84",
+          "rank_id": "12"
+        },
+        {
+          "device_id": "5",
+          "device_ip": "192.2.33.15",
+          "rank_id": "13"
+        },
+        {
+          "device_id": "6",
+          "device_ip": "192.3.129.242",
+          "rank_id": "14"
+        },
+        {
+          "device_id": "7",
+          "device_ip": "192.4.33.172",
+          "rank_id": "15"
+        }
+      ]
+    }
+  ]
+}
