@@ -25,8 +25,7 @@
 
 ### 调试环境（开发环境）
 
-以[MindSpore1.5分布式训练教程](https://www.mindspore.cn/tutorials/zh-CN/r1.5/intermediate/distributed_training/distributed_training_ascend.html)
-为例，使用本SDK可改造为
+以[MindSpore1.5分布式训练教程](https://www.mindspore.cn/tutorials/zh-CN/r1.5/intermediate/distributed_training/distributed_training_ascend.html) 为例，使用本SDK可改造为
 
 ```python
 import os
