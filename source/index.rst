@@ -10,7 +10,7 @@ Welcome to davincirunsdk's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-.. automodule:: davincirunsdk.notebook.sdk
+.. automodule:: davincirunsdk
    :members:
 
 Indices and tables
