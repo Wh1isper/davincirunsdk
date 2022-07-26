@@ -80,8 +80,17 @@ $pip install -e ./
 ### 单元测试
 
 ```bash
+$pip install pytest
 $pytest .
 ```
+
+### 文档构建
+
+```bash
+$pip install Sphinx sphinx-rtd-theme
+$make html
+```
+
 
 ### 项目构成
 
