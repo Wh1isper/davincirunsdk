@@ -19,7 +19,9 @@ from davincirunsdk.rank_table import RankTable, RankTableV1, RankTableV0
 
 
 def generate_rank_table():
-    """ 训练作业时用于hccl v0.1 -> v1.0转换，如果当前已经有了v1.0的hccl文件，直接使用get_rank_table
+    """训练作业时用于hccl v0.1 -> v1.0转换
+
+    如果当前已经有了v1.0的hccl文件，直接使用get_rank_table
 
     Returns:
         RankTable, 可能是RankTableV0或RankTableV1
@@ -40,7 +42,7 @@ def generate_rank_table():
 
 
 def get_rank_table():
-    """ 读入环境变量中的RANK_TABLE
+    """读入环境变量中的RANK_TABLE
 
     Returns:
         RankTableV1
@@ -53,7 +55,7 @@ def get_rank_table():
 
 
 def _set_extra_env(rank_table):
-    """ 训练任务转换hccl V0.1 -> v1.0时，额外适配的环境变量
+    """训练任务转换hccl V0.1 -> v1.0时，额外适配的环境变量
 
     Args:
         rank_table: RankTable，可以是V0或者V1
@@ -74,11 +76,10 @@ def _set_extra_env(rank_table):
 
 
 def set_rank_env(rank_table):
-    """ 这里重新设置了hccl文件的地址，主要是针对V0.1转换为V1.0转换的场景
+    """这里重新设置了hccl文件的地址，主要是针对V0.1转换为V1.0转换的场景
 
     Args:
         rank_table: RankTable，可以是V0或者V1
-
 
     Returns:
     """
@@ -96,10 +97,10 @@ def set_rank_env(rank_table):
 
 
 def init_rank_table() -> Dict or False:
-    """ SDK，训练作业中用户应使用此函数转换hccl v0.1 -> v1.0
+    """SDK，训练作业中用户应使用此函数转换hccl v0.1 -> v1.0
 
     Returns:
-        设置后的环境变量， False则为未找到rank_table，跳过设置
+        Dict or False: 设置后的环境变量， False则为未找到rank_table，跳过设置
     """
 
     log = init_log()
@@ -114,14 +115,16 @@ def init_rank_table() -> Dict or False:
 
 @contextmanager
 def set_random_ms_cache_dir():
-    """ 用于暂时设置MindSpore compiler缓存文件夹，用完自动销毁；
-        这个方法允许你在启动分布式训练后做一些额外的工作，如果不需要，可以使用start_and_wait_distributed_train
+    """用于暂时设置MindSpore compiler缓存文件夹，用完自动销毁；
 
-    Example:
-        with set_random_ms_cache_dir():
-            manager = start_distributed_train(train_command)
-            ... # do some extra work
-            wait_distributed_train(manager)
+    这个方法允许你在启动分布式训练后做一些额外的工作，如果不需要，可以使用start_and_wait_distributed_train
+
+    Examples:
+
+        >>> with set_random_ms_cache_dir():
+        >>>    manager = start_distributed_train(train_command)
+        >>>    ... # do some extra work
+        >>>    wait_distributed_train(manager)
 
     Returns:
     """
@@ -154,7 +157,7 @@ def set_random_ms_cache_dir():
 
 
 def wait_distributed_train(fmk_manager, destroy_when_finished=True, raise_exception=True):
-    """
+    """等待分布式训练完成
 
     Args:
         fmk_manager:  FMKManager, 通常是使用start_distributed_train的返回
@@ -173,19 +176,20 @@ def wait_distributed_train(fmk_manager, destroy_when_finished=True, raise_except
 
 
 def start_distributed_train(command, work_dir='./', log_dir='./log', *, output_notebook=False):
+    """启动分布式训练任务
 
-    """
     Args:
         command (List) : command list，用于启动训练脚本
         work_dir: 工作目录，如果command存在相对路径，需要确保从工作目录访问相对路径正确
         log_dir: 日志输出目录
         output_notebook: 默认为False，当为True时，将自动输出日志到notebook中；如果在非notebook环境中打开，不应当有任何作用
 
-    Example:
-        with set_random_ms_cache_dir():
-            manager = start_distributed_train(train_command)
-            ... # do some extra work
-            wait_distributed_train(manager)
+    Examples:
+
+        >>> with set_random_ms_cache_dir():
+        >>>    manager = start_distributed_train(train_command)
+        >>>    ... # do some extra work
+        >>>    wait_distributed_train(manager)
 
     Returns:
         FMKManager
@@ -208,7 +212,7 @@ def start_and_wait_distributed_train(command, work_dir='./', log_dir='./log',
                                      random_cache_dir=True,
                                      destroy_when_finished=True,
                                      raise_exception=True):
-    """
+    """启动并等待分布式训练完成
 
     Args:
         command (List) : command list，用于启动训练脚本
@@ -218,6 +222,10 @@ def start_and_wait_distributed_train(command, work_dir='./', log_dir='./log',
         random_cache_dir: 默认为True，是否使用随机缓存目录，避免在工作目录下生成大量算子缓存
         destroy_when_finished: 默认为True，是否在结束时销毁所有子进程；通常及时销毁可以帮助释放NPU资源，除非你想深入进程细节
         raise_exception: 默认为True，是否在子进程失败时raise exception，以确保外部得到exception提示，这在流水线中判断执行结果很有用
+
+    Examples:
+
+        >>> start_and_wait_distributed_train(train_command)
 
     Returns:
         状态码，0为正常结束，1为异常
