@@ -15,7 +15,7 @@
 - `init_rank_table` 支持转换v0.1 hccl json -> v1.0 hccl json
 - `start_distributed_train`, `wait_distributed_train`  根据v1.0 hccl json启动并等待分布式训练完成
 
-更多见[SDK文档]()
+更多见[SDK文档](http://davincirunsdk.readthedocs.io/)
 
 ## 安装及使用
 
