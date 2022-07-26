@@ -14,8 +14,11 @@
 - `davincirun`命令，支持Modelarts Ascend训练作业，不再需要打包davinci文件夹
 - `init_rank_table` 支持转换v0.1 hccl json -> v1.0 hccl json
 - `start_distributed_train`, `wait_distributed_train`  根据v1.0 hccl json启动并等待分布式训练完成
+- notebook友好，`output_notebook=True`支持在notebook中输出分布式训练日志
 
 更多见[SDK文档](http://davincirunsdk.readthedocs.io/)
+
+![](./image/example.gif)
 
 ## 安装及使用
 
