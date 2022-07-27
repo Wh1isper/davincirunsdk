@@ -55,10 +55,14 @@ def get_rank_table():
 
 
 def _set_extra_env(rank_table):
-    """训练任务转换hccl V0.1 -> v1.0时，额外适配的环境变量
+    """训练任务转换hccl V0.1 -> v1.0时，额外适配的环境变量，``Example`` 展示了当前的配置
 
     Args:
         rank_table: RankTable，可以是V0或者V1
+
+    Example:
+        >>> os.environ['RANK_START'] = str(rank_start)
+        >>> os.environ['RANK_SIZE'] = str(rank_table.get_device_num())
 
     Returns:
 
@@ -168,7 +172,7 @@ def wait_distributed_train(fmk_manager, destroy_when_finished=True, raise_except
         状态码，0为正常结束，1为异常
 
     Raises:
-        DistributedRuntimeError
+        DistributedRuntimeError: 分布式训练失败，``raise_exception=True`` 可抛出.
 
     """
 
@@ -229,6 +233,9 @@ def start_and_wait_distributed_train(command, work_dir='./', log_dir='./log',
 
     Returns:
         状态码，0为正常结束，1为异常
+
+    Raises:
+        DistributedRuntimeError: 分布式训练失败，``raise_exception=True`` 可抛出.
     """
 
     def _run_wait():

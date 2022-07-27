@@ -6,4 +6,6 @@
 #
 
 class DistributedRuntimeError(RuntimeError):
-    ...
+    """分布式训练失败错误
+    """
+    pass
