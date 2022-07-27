@@ -31,11 +31,11 @@ Reference
 ========================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: notebook:
+   :maxdepth: 3
+   :caption: 参考API文档
 
-   notebook.sdk <notebook/sdk/index>
-   notebook.exception <notebook/exception/index>
+   公共API <public/index>
+   notebook <notebook/index>
 
 Indices and tables
 ==================
