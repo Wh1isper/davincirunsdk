@@ -104,6 +104,8 @@ $make html
 
 [AI靶场分布式训练支持](https://git.openi.org.cn/Wh1isper/distrubuted-trainning-on-datai)
 
+[盘古协同计算](https://git.openi.org.cn/PCL-Platform.Intelligence/AISynergy/src/branch/V2.0.0/examples/Pangu-AISync)
+
 ## 鸣谢
 
 感谢华为云、鹏城实验室、AI靶场对本项目的大力支持和帮助
