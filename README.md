@@ -118,3 +118,4 @@ $make html
 
 🌟🌟🌟[OpenI](https://git.openi.org.cn/Wh1isper/davincirunsdk) 🌟🌟🌟
 
+通过手机微信投票支持本项目：https://mp.weixin.qq.com/s/3LD2p-o6_CloJpfwOr-9ig
