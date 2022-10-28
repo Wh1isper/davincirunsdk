@@ -7,6 +7,8 @@
 
 # davincirunsdk
 
+此项目荣获[2022启智社区优秀开源项目](https://openi.org.cn/html/2022/notices_1024/653.html)
+
 为类Jupyter交互式环境提供Notebook友好的Ascend分布式训练SDK，推荐在[AI靶场](https://git.openi.org.cn/datai/datai_tutorial)使用本脚本进行python脚本训练
 
 ## 特性
@@ -117,5 +119,3 @@ $make html
 🌟🌟🌟[Github](https://github.com/Wh1isper/davincirunsdk) 🌟🌟🌟
 
 🌟🌟🌟[OpenI](https://git.openi.org.cn/Wh1isper/davincirunsdk) 🌟🌟🌟
-
-通过手机微信投票支持本项目：https://mp.weixin.qq.com/s/3LD2p-o6_CloJpfwOr-9ig
